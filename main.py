@@ -38,8 +38,8 @@ s_content = ""
 for section in configs.sections():
     if (configs.get(section, 'enddate') != 9) and (TODAY > configs.get(section, 'enddate')):
         continue
-    print(section)
-    print(aes_key)
+    logging.info(section)
+    logging.info(aes_key)
     mobile = privateCrypt.decrypt_aes_ecb(section, aes_key)
     province = configs.get(section, 'province')
     city = configs.get(section, 'city')
